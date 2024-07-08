@@ -44,8 +44,8 @@ This project is an application developed with Node.js and JavaScript to handle f
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/your-username/repository-name.git
-cd repository-name
+git clone https://github.com/AdilsonFuxe/file-upload
+cd file-upload
 ```
 
 2. Install the dependencies:
@@ -67,7 +67,7 @@ npm start
 1. Build and run the containers:
 
 ```sh
-docker-compose up --build
+docker-compose up
 ```
 
 ## Run Tests
