@@ -1,5 +1,6 @@
 # File Upload Project with Node.js
 
+
 ## Project Description
 
 This project is an application developed with Node.js and JavaScript to handle file uploads, following advanced programming practices.
@@ -9,6 +10,7 @@ This project is an application developed with Node.js and JavaScript to handle f
 - **Hexagonal Architecture**: Used to create a modular and scalable code structure.
 - **SOLID Principles**: Applied to ensure a robust and maintainable software design.
 - **Design Patterns**: Implemented to solve common problems efficiently.
+- **Functional Programming**: Leveraged to write concise, predictable, and testable code. It emphasizes the use of pure functions, immutability, and higher-order functions to enhance code modularity and reliability.
 - **Automated Testing with Jest**: Used to ensure code quality.
 - **Database with MongoDB**: Integrated for data management.
 - **Containerization with Docker and Docker Compose**: Used to ensure portability and ease of deployment.
@@ -83,5 +85,3 @@ npm test
 3. Make your changes and commit them: `git commit -m 'My new feature'`
 4. Push to the remote repository: `git push origin my-feature`
 5. Open a pull request.
-
----
