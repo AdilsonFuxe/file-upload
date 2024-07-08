@@ -1,7 +1,3 @@
-Sure, here's the translated version in English:
-
----
-
 # File Upload Project with Node.js
 
 ## Project Description
