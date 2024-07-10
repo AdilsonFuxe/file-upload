@@ -20,6 +20,6 @@ describe('Delete File', () => {
     const {sut, deleteUploadFileByIdRepository} = makeSut();
     deleteUploadFileByIdRepository.mockRejectedValue(new Error());
     const promise = sut('any_id');
-    expect(promise).rejects.toThrow(new Error())
+    await expect(promise).rejects.toThrow(new Error())
   })
 })
