@@ -1,12 +1,23 @@
 import {LoadUploadFileById} from "../../../src/ports/in";
 import {loadUploadFileById} from "../../../src/core/usecases";
+import {Upload} from "../../../src/core/models";
 
 const makeSut = () => {
-  const loadUploadFileByIdRepository = jest.fn();
+  const mockedUpload = (): Upload => ({
+    id: 'any_id',
+    name: 'any_name',
+    mimeType: 'any_mime',
+    size: 0.3,
+    key: 'any_key',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  })
+  const loadUploadFileByIdRepository = jest.fn().mockResolvedValue(mockedUpload());
   const sut = loadUploadFileById({loadUploadFileByIdRepository});
   return {
     sut,
-    loadUploadFileByIdRepository
+    loadUploadFileByIdRepository,
+    mockedUpload
   }
 }
 
@@ -22,5 +33,11 @@ describe('LoadUploadFileById', () => {
     loadUploadFileByIdRepository.mockRejectedValue(new Error());
     const promise = sut('any_id');
     await expect(promise).rejects.toThrow(new Error());
-  })
+  });
+
+  it('Should return a upload file details on success', async () => {
+    const { sut, mockedUpload } = makeSut();
+    const result = await sut('any_id');
+    expect(result).toEqual(mockedUpload())
+  });
 });
