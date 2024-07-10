@@ -13,7 +13,7 @@ const makeSut = () => {
   const loadUploadFilesRepository = jest.fn().mockResolvedValue(mockedUploads());
   const sut = loadUploadFiles({loadUploadFilesRepository});
   return {
-    sut, loadUploadFilesRepository
+    sut, loadUploadFilesRepository, mockedUploads
   }
 }
 
@@ -30,5 +30,11 @@ describe('LoadUploadFiles', () => {
     loadUploadFilesRepository.mockRejectedValue(new Error());
     const promise = sut({});
     await expect(promise).rejects.toThrow(new Error())
+  })
+
+  it('Should return a list of files data on success', async () => {
+    const {sut, mockedUploads} = makeSut();
+    const result = await sut({});
+    expect(result).toEqual(mockedUploads())
   })
 });
