@@ -1,5 +1,4 @@
 import {Upload} from "../../core/models";
-import {UploadFile} from "../in";
 
 export type UploadFileRepository = (params: UploadFileRepository.Params) => Promise<UploadFileRepository.Response>
 
@@ -23,5 +22,5 @@ export namespace LoadUploadFilesRepository {
     mimeType?: string;
   }
 
-  export type Response = ReadonlyArray<UploadFile>
+  export type Response = ReadonlyArray<Upload>
 }
