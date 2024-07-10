@@ -8,5 +8,6 @@
     "sourceMap": true,
     "rootDirs": ["src"],
     "moduleResolution": "Node"
-  }
+  },
+  "include": ["src/**/*"]
 }
