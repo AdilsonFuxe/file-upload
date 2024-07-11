@@ -67,7 +67,6 @@ describe('Delete File', () => {
     const {deleteLocalFile, sut, loadUploadFileByIdRepository, deleteUploadFileByIdRepository, mockedUpload} = makeSut();
     loadUploadFileByIdRepository.mockResolvedValue(null);
     await sut('any_id');
-
     expect(deleteUploadFileByIdRepository).toHaveBeenCalledTimes(0);
     expect(deleteLocalFile).toHaveBeenCalledTimes(0);
   })

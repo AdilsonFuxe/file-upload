@@ -36,6 +36,13 @@ describe('LoadUploadFileById', () => {
     await expect(promise).rejects.toThrow(new Error());
   });
 
+  it('Should return null if loadUploadFileByIdRepository returns null', async () => {
+    const {loadUploadFileByIdRepository, sut} = makeSut();
+    loadUploadFileByIdRepository.mockResolvedValue(null);
+    const result = await sut('any_id');
+    expect(result).toBeNull();
+  })
+
   it('Should return a upload file details on success', async () => {
     const { sut, mockedUpload } = makeSut();
     const result = await sut('any_id');
