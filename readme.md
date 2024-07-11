@@ -2,17 +2,27 @@
 
 ## Project Description
 
-This project is an application developed with Node.js and JavaScript to handle file uploads, following advanced programming practices.
+This project is an application developed with Node.js and JavaScript to handle file uploads, following advanced
+programming practices.
 
 ## Technologies and Practices Used
 
 - **Hexagonal Architecture**: Used to create a modular and scalable code structure.
 - **SOLID Principles**: Applied to ensure a robust and maintainable software design.
 - **Design Patterns**: Implemented to solve common problems efficiently.
-- **Functional Programming**: Leveraged to write concise, predictable, and testable code. It emphasizes the use of pure functions, immutability, and higher-order functions to enhance code modularity and reliability.
+- **Functional Programming**: Leveraged to write concise, predictable, and testable code. It emphasizes the use of pure
+  functions, immutability, and higher-order functions to enhance code modularity and reliability.
 - **Automated Testing with Jest**: Used to ensure code quality.
 - **Database with MongoDB**: Integrated for data management.
 - **Containerization with Docker and Docker Compose**: Used to ensure portability and ease of deployment.
+- **Security with Helmet.js**: Utilized to enhance the security of the application.
+
+## Security
+
+To enhance the security of the application, we use Helmet.js. Helmet.js helps secure Express.js applications by setting
+various HTTP headers. It mitigates common vulnerabilities by setting headers like Content Security Policy,
+Strict-Transport-Security, X-Frame-Options, and others, which help protect the application from well-known web
+vulnerabilities such as Cross-Site Scripting (XSS), clickjacking, and other code injection attacks.
 
 ## Project Structure
 
@@ -91,6 +101,7 @@ npm test
   "url": "http://localhost:5050/api/v1/files/669b391106eadf0f0a0a2c46e318dcad8231e34546dc77db.pdf"
 }
 ```
+
 - **Unexpected Error**: Returns 500 with the following structure:
 
 ```json
@@ -137,6 +148,7 @@ npm test
   }
 ]
 ```
+
 - **Unexpected Error**: Returns 500 with the following structure:
 
 ```json
@@ -164,6 +176,7 @@ npm test
   "url": "http://localhost:5050/api/v1/files/b55eb91815d5295a0a2652da5fac2eb5cfacedf886bab592.pdf"
 }
 ```
+
 - **Response**: Returns 404 if the document ID does not exist with the following structure:
 
 ```json
@@ -171,6 +184,7 @@ npm test
   "error": "This file not found"
 }
 ```
+
 - **Unexpected Error**: Returns 500 with the following structure:
 
 ```json
@@ -193,6 +207,7 @@ npm test
   "error": "This file not found"
 }
 ```
+
 - **Unexpected Error**: Returns 500 with the following structure:
 
 ```json
