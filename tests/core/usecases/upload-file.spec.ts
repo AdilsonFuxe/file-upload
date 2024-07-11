@@ -1,5 +1,6 @@
 import {uploadFile} from "../../../src/core/usecases";
 import {Upload} from "../../../src/core/models";
+import {generateUri} from "../../../src/core/helpers";
 
 
 const makeSut = () => {
@@ -47,7 +48,7 @@ describe("UploadFile", () => {
     await expect(promise).rejects.toThrow(new Error())
   })
 
-  it('Should return a upload data on success', async () => {
+  it('Should return a file url on success', async () => {
     const {sut, mockedUpload} = makeSut();
     const params = {
       name: 'any_name',
@@ -55,8 +56,9 @@ describe("UploadFile", () => {
       size: 0.3,
       key: 'any_key',
     }
-    const result =  await sut(params)
-    expect(result).toEqual(mockedUpload())
+    const result =  await sut(params);
+    const upload = mockedUpload();
+    expect(result).toEqual({url: generateUri(upload.key)})
   })
 
 });

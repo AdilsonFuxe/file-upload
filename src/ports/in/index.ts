@@ -4,13 +4,13 @@ export type UploadFile = (params: UploadFile.Params) => Promise<UploadFile.Respo
 
 export namespace UploadFile {
   export type Params = Omit<Upload, 'id' | 'createdAt' | 'updatedAt'>
-  export type Response = Upload
+  export type Response = { url: string }
 }
 
 export type LoadUploadFileById = (id: string) => Promise<LoadUploadFileById.Response>
 
 export namespace LoadUploadFileById {
-  export type Response = Upload
+  export type Response = Upload & { url: string }
 }
 
 export type DeleteUploadFileById = (id: string) => Promise<void>

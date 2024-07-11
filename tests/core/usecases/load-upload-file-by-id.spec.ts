@@ -1,6 +1,7 @@
 import {LoadUploadFileById} from "../../../src/ports/in";
 import {loadUploadFileById} from "../../../src/core/usecases";
 import {Upload} from "../../../src/core/models";
+import {generateUri} from "../../../src/core/helpers";
 
 const makeSut = () => {
   const mockedUpload = (): Upload => ({
@@ -38,6 +39,8 @@ describe('LoadUploadFileById', () => {
   it('Should return a upload file details on success', async () => {
     const { sut, mockedUpload } = makeSut();
     const result = await sut('any_id');
-    expect(result).toEqual(mockedUpload())
+    const upload = mockedUpload();
+    Object.assign(upload, { url: generateUri(upload.key)});
+    expect(result).toEqual(upload)
   });
 });

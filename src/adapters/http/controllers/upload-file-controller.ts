@@ -17,14 +17,14 @@ export const uploadFileController = (params: Params) => async (req, res) => {
     } = req.file;
 
 
-    await uploadFile({
+    const result = await uploadFile({
       name: originalname,
       key: filename,
       size,
       mimeType: mimetype
     })
 
-    return res.status(200).json({url: `${env.server_url}/${filename}`});
+    return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json({error: error.stack});
   }

@@ -1,5 +1,6 @@
 import {UploadFileRepository} from "../../ports/out";
 import {UploadFile} from "../../ports/in";
+import {generateUri} from "../helpers";
 
 
 type Dependencies = {
@@ -9,5 +10,7 @@ type Dependencies = {
 type BuildUploadFile = (dependencies: Dependencies) => UploadFile
 
 export const uploadFile: BuildUploadFile = ({uploadFileRepository}) =>
-  async (params) =>
-    await uploadFileRepository(params)
+  async (params) => {
+    const result = await uploadFileRepository(params);
+    return {url: generateUri(result.key)};
+  }
