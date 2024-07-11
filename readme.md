@@ -1,6 +1,5 @@
 # File Upload Project with Node.js
 
-
 ## Project Description
 
 This project is an application developed with Node.js and JavaScript to handle file uploads, following advanced programming practices.
@@ -76,6 +75,130 @@ To run the automated tests, use the following command:
 
 ```sh
 npm test
+```
+
+## API Endpoints
+
+### Upload File
+
+**POST** `http://localhost:5050/api/v1/uploads`
+
+- **Description**: Receives a file of type multipart form.
+- **Response**: Returns 201 on success with the following structure:
+
+```json
+{
+  "url": "http://localhost:5050/api/v1/files/669b391106eadf0f0a0a2c46e318dcad8231e34546dc77db.pdf"
+}
+```
+- **Unexpected Error**: Returns 500 with the following structure:
+
+```json
+{
+  "error": "some error"
+}
+```
+
+### Load Upload Files
+
+**GET** `http://localhost:5050/api/v1/uploads`
+
+- **Description**: Can receive a query param `mimeType`.
+- **Response**: Returns 200 on success with the following structure:
+
+```json
+[
+  {
+    "name": "Document1.pdf",
+    "size": 419415,
+    "key": "b55eb91815d5295a0a2652da5fac2eb5cfacedf886bab592.pdf",
+    "mimeType": "application/pdf",
+    "createdAt": "2024-07-10T13:46:56.073Z",
+    "updatedAt": "2024-07-10T13:46:56.073Z",
+    "id": "668e90d01491dfda32cb8d13"
+  },
+  {
+    "name": "Document2.pdf",
+    "size": 419415,
+    "key": "60880eb8b92b0c5ecf400fd1bb81ec07196213f2bd9030f5.pdf",
+    "mimeType": "application/pdf",
+    "createdAt": "2024-07-10T21:04:09.589Z",
+    "updatedAt": "2024-07-10T21:04:09.589Z",
+    "id": "668ef749bbedf90325d0884e"
+  },
+  {
+    "name": "Document3.pdf",
+    "size": 419415,
+    "key": "669b391106eadf0f0a0a2c46e318dcad8231e34546dc77db.pdf",
+    "mimeType": "application/pdf",
+    "createdAt": "2024-07-11T10:24:18.326Z",
+    "updatedAt": "2024-07-11T10:24:18.326Z",
+    "id": "668fb2d27967b28f48f1fc82"
+  }
+]
+```
+- **Unexpected Error**: Returns 500 with the following structure:
+
+```json
+{
+  "error": "some error"
+}
+```
+
+### Load Upload File by Id
+
+**GET** `http://localhost:5050/api/v1/uploads/:id`
+
+- **Description**: Returns the file corresponding to the provided ID.
+- **Response**: Returns 200 on success with the following structure:
+
+```json
+{
+  "name": "Some document",
+  "size": 419415,
+  "key": "b55eb91815d5295a0a2652da5fac2eb5cfacedf886bab592.pdf",
+  "mimeType": "application/pdf",
+  "createdAt": "2024-07-10T13:46:56.073Z",
+  "updatedAt": "2024-07-10T13:46:56.073Z",
+  "id": "668e90d01491dfda32cb8d13",
+  "url": "http://localhost:5050/api/v1/files/b55eb91815d5295a0a2652da5fac2eb5cfacedf886bab592.pdf"
+}
+```
+- **Response**: Returns 404 if the document ID does not exist with the following structure:
+
+```json
+{
+  "error": "This file not found"
+}
+```
+- **Unexpected Error**: Returns 500 with the following structure:
+
+```json
+{
+  "error": "some error"
+}
+```
+
+### Delete Upload File by Id
+
+**DELETE** `http://localhost:5050/api/v1/files/:id`
+
+- **Description**: Deletes the file corresponding to the provided ID.
+- **Response**: Returns 204 on success.
+
+- **Response**: Returns 404 if the document ID does not exist with the following structure:
+
+```json
+{
+  "error": "This file not found"
+}
+```
+- **Unexpected Error**: Returns 500 with the following structure:
+
+```json
+{
+  "error": "some error"
+}
 ```
 
 ## Contribution
