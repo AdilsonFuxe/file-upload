@@ -32,6 +32,7 @@ vulnerabilities such as Cross-Site Scripting (XSS), clickjacking, and other code
 │   ├── core/
 │   ├── ports/
 │   ├── adapters/
+│   ├── config/
 ├── tests/
 │   └── (automated tests with Jest)
 ├── .dockerignore
