@@ -7,10 +7,12 @@ import {MongoHelper} from "../../db/mongoose/helpers";
 import setupRoutes from "./config/setup-routes";
 import setupMiddlewares from "./config/setup-middlewares";
 import setupStaticFiles from "./config/setup-static-files";
+import setupHelmet from "./config/setup-helmet";
 
 const app = express();
 const PORT = process.env.PORT || 5050;
 
+setupHelmet(app);
 setupMiddlewares(app);
 setupStaticFiles(app);
 setupRoutes(app);
