@@ -5,6 +5,8 @@ import {
   loadUploadFilesRepository,
   uploadFileRepository
 } from "../../db/mongoose/repositories";
+
+import {deleteLocalFileAdapter} from '../../utils'
 import {LoadUploadFileById, LoadUploadFiles, UploadFile} from "../../../ports/in";
 
 export const makeUploadFile = (): UploadFile => uploadFile({
@@ -15,4 +17,8 @@ export const makeLoadUploads = (): LoadUploadFiles => loadUploadFiles({loadUploa
 
 export const makeLoadUploadFIleById = (): LoadUploadFileById => loadUploadFileById({loadUploadFileByIdRepository});
 
-export const makeDeleteUploadFileById = () => deleteUploadFileById({deleteUploadFileByIdRepository});
+export const makeDeleteUploadFileById = () => deleteUploadFileById({
+  deleteUploadFileByIdRepository,
+  loadUploadFileByIdRepository,
+  deleteLocalFile: deleteLocalFileAdapter
+});

@@ -11,7 +11,7 @@ export const deleteUploadFileByIdController = (params: Params) => async (req, re
     const {loadUploadFileById, deleteUploadFileById} = params;
     const {id} = req.params
 
-    const result = loadUploadFileById(id);
+    const result = await loadUploadFileById(id);
 
     if (!result) {
       res.status(404).json({error: "This file not found"});
@@ -19,7 +19,7 @@ export const deleteUploadFileByIdController = (params: Params) => async (req, re
 
     await deleteUploadFileById(id);
 
-    return res.status(204);
+    return res.status(204).json();
   } catch (error) {
     return res.status(500).json({error: error.stack});
   }
