@@ -19,7 +19,7 @@ programming practices.
 
 ## Security
 
-To enhance the security of the application, we use Helmet.js. Helmet.js helps secure Express.js applications by setting
+To enhance the security of the application, I use Helmet.js. Helmet.js helps secure Express.js applications by setting
 various HTTP headers. It mitigates common vulnerabilities by setting headers like Content Security Policy,
 Strict-Transport-Security, X-Frame-Options, and others, which help protect the application from well-known web
 vulnerabilities such as Cross-Site Scripting (XSS), clickjacking, and other code injection attacks.
