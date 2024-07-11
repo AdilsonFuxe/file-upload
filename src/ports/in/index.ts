@@ -22,5 +22,5 @@ export namespace LoadUploadFiles {
     mimeType?: string;
   }
 
-  export type Response = ReadonlyArray<UploadFile>
+  export type Response = ReadonlyArray<Upload>
 }

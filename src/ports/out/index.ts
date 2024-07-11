@@ -24,3 +24,5 @@ export namespace LoadUploadFilesRepository {
 
   export type Response = ReadonlyArray<Upload>
 }
+
+export type DeleteLocalFile = (path: string) => Promise<void>;
