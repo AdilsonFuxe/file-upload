@@ -10,7 +10,8 @@ import {MongoHelper} from "../helpers";
 export const uploadFileRepository: UploadFileRepository = async (params) => {
   const upload = new UploadFileModel(params);
   await upload.save();
-  return MongoHelper.serialize(upload);
+  const parsedDoc = JSON.parse(JSON.stringify(upload));
+  return MongoHelper.serialize(parsedDoc);
 }
 
 export const deleteUploadFileByIdRepository: DeleteUploadFileByIdRepository = async (id: string) => {
